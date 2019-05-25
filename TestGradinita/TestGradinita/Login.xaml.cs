@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,6 +28,7 @@ namespace TestGradinita
         {
             InitializeComponent();
 
+            Loaded += ComponentLoaded;
             ColumnDefinition gridCol1 = new ColumnDefinition();
 
             ColumnDefinition gridCol2 = new ColumnDefinition();
@@ -51,7 +53,7 @@ namespace TestGradinita
 
             gridRow2.Height = new GridLength(210);
 
-            RowDefinition gridRow3 = new RowDefinition();
+            RowDefinition gridRow3 = new RowDefinition();   
 
             gridRow3.Height = new GridLength(210);
 
@@ -61,11 +63,20 @@ namespace TestGradinita
 
             grid.RowDefinitions.Add(gridRow3);
             LoadCharacters();
+            System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"D:\Master-Guran\Gradinita\TestGradinita\resources\alegePersonaj.wav");
+            player.Play();
         }
+
+        private void ComponentLoaded(object sender,RoutedEventArgs e)
+        {
+        
+        }
+
+
 
         public void LoadCharacters()
         {
-            for(int i=1;i<8;++i)
+            for(int i=1;i<9;++i)
             {
                 Image pers = CreateImage(i);
 
