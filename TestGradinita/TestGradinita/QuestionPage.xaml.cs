@@ -16,25 +16,18 @@ using System.Windows.Shapes;
 namespace TestGradinita
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for QuestionPage.xaml
     /// </summary>
-    /// 
-
-    public class Gradinita
+    public partial class QuestionPage : Page
     {
-        public static Image UserImage;
-    };
-    public partial class MainWindow : Window
-    {
-        public MainWindow()
+        public QuestionPage()
         {
             InitializeComponent();
-            Loaded += MyWindow_Loaded;
-        }
-
-        private void MyWindow_Loaded(object sender, RoutedEventArgs e)
-        {
-            frame.NavigationService.Navigate(new Login());
+     
+            userImage.Height = 100;
+            userImage.Width = 100;
+            userImage.Source = new BitmapImage(new Uri((TestGradinita.Gradinita.UserImage.Source as BitmapImage).UriSource.AbsolutePath));
+          
         }
     }
 }
