@@ -23,6 +23,9 @@ namespace TestGradinita
     public class Gradinita
     {
         public static Image UserImage;
+
+        public static int score;
+        public static int wrongAnswers;
     };
     public partial class MainWindow : Window
     {
