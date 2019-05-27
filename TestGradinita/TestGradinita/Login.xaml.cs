@@ -22,7 +22,7 @@ namespace TestGradinita
     /// </summary>
     public partial class Login : Page
     {
-        static string imgSource = "D:/Master-Guran/Gradinita/TestGradinita/resources/p";
+        static string imgSource = TestGradinita.Gradinita.dirSource + "p";
 
         public Login()
         {
@@ -80,8 +80,11 @@ namespace TestGradinita
             grid.RowDefinitions.Add(gridRow5);
           
             LoadCharacters();
-            System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"D:\Master-Guran\Gradinita\TestGradinita\resources\alegePersonaj.wav");
+            System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"C:/Users/Admin/Desktop/master_an_1_semestru_2/copii/Gradinita/TestGradinita/resources/alegePersonaj.wav");
             player.Play();
+
+            // initialize score
+            TestGradinita.Gradinita.score = 0;
         }
 
         private void ComponentLoaded(object sender,RoutedEventArgs e)
@@ -100,7 +103,7 @@ namespace TestGradinita
                 pers.MouseDown += (s, e) =>
                 {
                     TestGradinita.Gradinita.UserImage = s as Image;
-                    this.NavigationService.Navigate(new QuestionPage());
+                    this.NavigationService.Navigate(new Introducere());
                     
                 };
                 Grid.SetRow(pers, (i -1) / 5);
