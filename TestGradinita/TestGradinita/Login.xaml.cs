@@ -22,7 +22,7 @@ namespace TestGradinita
     /// </summary>
     public partial class Login : Page
     {
-        static string imgSource = "C:/Users/Admin/Desktop/master_an_1_semestru_2/copii/Gradinita/TestGradinita/resources/p";
+        static string imgSource = TestGradinita.Gradinita.dirSource + "p";
 
         public Login()
         {
@@ -86,7 +86,7 @@ namespace TestGradinita
                 pers.MouseDown += (s, e) =>
                 {
                     TestGradinita.Gradinita.UserImage = s as Image;
-                    this.NavigationService.Navigate(new QuestionPage1());
+                    this.NavigationService.Navigate(new Introducere());
                     
                 };
                 Grid.SetRow(pers, (i -1) / 3);

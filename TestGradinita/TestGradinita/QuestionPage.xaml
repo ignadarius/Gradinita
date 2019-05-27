@@ -9,6 +9,7 @@
       Title="QuestionPage">
 
     <Grid Width="1200" Height="900">
-        <Image x:Name="userImage" HorizontalAlignment="Left" Height="100" Margin="1064,41,0,0" VerticalAlignment="Top" Width="100" Source="" RenderTransformOrigin="17.377,0.333"/>
+        <Image x:Name="userImage" HorizontalAlignment="Left" Height="150" Margin="1064,41,0,0" VerticalAlignment="Top" Width="150" Source="" RenderTransformOrigin="17.377,0.333"/>
+        <Grid x:Name="grid" HorizontalAlignment="Left" Height="800" Margin="50,100,50,0" VerticalAlignment="Top" Width="1000"/>
     </Grid>
 </Page>

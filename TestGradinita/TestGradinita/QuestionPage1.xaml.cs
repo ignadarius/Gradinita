@@ -35,8 +35,8 @@ namespace TestGradinita
             TTimer = new Timer(
                         new TimerCallback(NextQuestion),
                         null,
-                        45000,
-                        45000);
+                        5000,
+                        5000);
             //-----------------------
 
             // Define the Columns
@@ -57,11 +57,13 @@ namespace TestGradinita
             {
                 Image pers = CreateImage(i);
 
-                if (i == 3) // correct
+                if (i == 1) // correct
                 {
                     pers.MouseDown += (s, e) =>
                     {
                         TestGradinita.Gradinita.score++;
+                        TestGradinita.Gradinita.CorrectAnswerSound.Play();
+                        Thread.Sleep(3000);
                         this.NavigationService.Navigate(new QuestionPage());
                     };
                 }
@@ -70,6 +72,8 @@ namespace TestGradinita
                     pers.MouseDown += (s, e) =>
                     {
                         TestGradinita.Gradinita.wrongAnswers++;
+                        TestGradinita.Gradinita.WrongAnswerSound.Play();
+                        Thread.Sleep(3000);
                         this.NavigationService.Navigate(new QuestionPage1()); // go to netx question?
                     };
                 }
@@ -81,13 +85,18 @@ namespace TestGradinita
 
                 grid_s.Children.Add(pers);
             }
+
+            string s1 = Gradinita.dirSource + "iarna.wav";
+            System.Media.SoundPlayer player = new System.Media.SoundPlayer(@s1);
+            player.Play();
         }
 
         private void NextQuestion(object state)
         {
             this.Dispatcher.Invoke(() =>
             {
-                this.NavigationService.Navigate(new QuestionPage());
+                Uri pageFunctionUri = new Uri("QuestionPage.xaml", UriKind.RelativeOrAbsolute);
+                this.NavigationService.Navigate(pageFunctionUri);
             });
         }
 
