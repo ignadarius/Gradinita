@@ -34,12 +34,18 @@ namespace TestGradinita
             ColumnDefinition gridCol2 = new ColumnDefinition();
 
             ColumnDefinition gridCol3 = new ColumnDefinition();
+            ColumnDefinition gridCol4 = new ColumnDefinition();
+            ColumnDefinition gridCol5 = new ColumnDefinition();
+
+
 
             grid.ColumnDefinitions.Add(gridCol1);
 
             grid.ColumnDefinitions.Add(gridCol2);
 
             grid.ColumnDefinitions.Add(gridCol3);
+            grid.ColumnDefinitions.Add(gridCol4);
+            grid.ColumnDefinitions.Add(gridCol5);
 
 
 
@@ -47,21 +53,32 @@ namespace TestGradinita
 
             RowDefinition gridRow1 = new RowDefinition();
 
-            gridRow1.Height = new GridLength(210);
+            gridRow1.Height = new GridLength(120);
 
             RowDefinition gridRow2 = new RowDefinition();
 
-            gridRow2.Height = new GridLength(210);
+            gridRow2.Height = new GridLength(120);
 
             RowDefinition gridRow3 = new RowDefinition();   
 
-            gridRow3.Height = new GridLength(210);
+            gridRow3.Height = new GridLength(120);
+
+            RowDefinition gridRow4 = new RowDefinition();
+
+            gridRow4.Height = new GridLength(120);
+
+            RowDefinition gridRow5 = new RowDefinition();
+
+            gridRow5.Height = new GridLength(120);
 
             grid.RowDefinitions.Add(gridRow1);
 
             grid.RowDefinitions.Add(gridRow2);
 
             grid.RowDefinitions.Add(gridRow3);
+            grid.RowDefinitions.Add(gridRow4);
+            grid.RowDefinitions.Add(gridRow5);
+          
             LoadCharacters();
             System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"D:\Master-Guran\Gradinita\TestGradinita\resources\alegePersonaj.wav");
             player.Play();
@@ -76,7 +93,7 @@ namespace TestGradinita
 
         public void LoadCharacters()
         {
-            for(int i=1;i<9;++i)
+            for(int i=1;i<=26;++i)
             {
                 Image pers = CreateImage(i);
 
@@ -86,8 +103,8 @@ namespace TestGradinita
                     this.NavigationService.Navigate(new QuestionPage());
                     
                 };
-                Grid.SetRow(pers, (i -1) / 3);
-                Grid.SetColumn(pers, (i -1) % 3);
+                Grid.SetRow(pers, (i -1) / 5);
+                Grid.SetColumn(pers, (i -1) % 5);
 
                 grid.Children.Add(pers);
             }
@@ -96,9 +113,9 @@ namespace TestGradinita
         private Image CreateImage(int Id)
         {
             Image Mole = new Image();
-            Mole.Width = 200;
-            Mole.Height = 200;
-            ImageSource MoleImage = new BitmapImage(new Uri(imgSource+Id.ToString()+".jpg"));
+            Mole.Width = 100;
+            Mole.Height = 100;
+            ImageSource MoleImage = new BitmapImage(new Uri(imgSource+Id.ToString()+".png"));
             Mole.Source = MoleImage;
             return Mole;
         }
