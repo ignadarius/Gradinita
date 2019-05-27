@@ -5,31 +5,14 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TestGradinita"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="900" d:DesignWidth="1200"
       Title="Introducere">
-
-    <Grid>
-        <Image x:Name="userImage" HorizontalAlignment="Center" Height="368" Margin="138,29,0,0" VerticalAlignment="Center" Width="495" RenderTransformOrigin="0.5,0.5">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-0.113"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
-
-        <Image x:Name="start" HorizontalAlignment="Center" Height="268" Margin="138,29,0,0" VerticalAlignment="Bottom" Width="205" RenderTransformOrigin="0.5,0.5">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-0.113"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
-
+    <Grid HorizontalAlignment="Left" Height="900" Margin="0,10,0,0" VerticalAlignment="Top" Width="1200">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="138*"/>
+            <RowDefinition Height="77*"/>
+        </Grid.RowDefinitions>
+        <Image x:Name="userImage" HorizontalAlignment="Left" Height="100" Margin="1066,10,0,0" VerticalAlignment="Top" Width="100"/>
+        <Image x:Name="start" HorizontalAlignment="Left" Height="318" Margin="408,172,0,0" VerticalAlignment="Top" Width="470"/>
     </Grid>
 </Page>

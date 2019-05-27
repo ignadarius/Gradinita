@@ -27,7 +27,7 @@ namespace TestGradinita
         public static int score;
         public static int wrongAnswers;
 
-        public static string dirSource = "C:/Users/Admin/Desktop/master_an_1_semestru_2/copii/Gradinita/TestGradinita/resources/";
+        public static string dirSource = "D:/Master-Guran/Gradinita/TestGradinita/resources/";
 
         // gresit/corect 
         public static string s1 = dirSource + "corect.wav";
@@ -35,6 +35,7 @@ namespace TestGradinita
 
         public static System.Media.SoundPlayer CorrectAnswerSound = new System.Media.SoundPlayer(@s1);
         public static System.Media.SoundPlayer WrongAnswerSound = new System.Media.SoundPlayer(@s2);
+        public static System.Media.SoundPlayer timpExpirat = new System.Media.SoundPlayer(@dirSource + "expirat.wav");
     };
 
     public partial class MainWindow : Window

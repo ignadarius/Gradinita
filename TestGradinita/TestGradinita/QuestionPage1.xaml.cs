@@ -24,7 +24,7 @@ namespace TestGradinita
     /// </summary>
     public partial class QuestionPage1 : Page
     {
-        static string imgSource = "C:/Users/Admin/Desktop/master_an_1_semestru_2/copii/Gradinita/TestGradinita/resources/q1/img";
+        static string imgSource =TestGradinita.Gradinita.dirSource+"q1/img";
         static Timer TTimer = null;
         public QuestionPage1()
         {
@@ -35,8 +35,8 @@ namespace TestGradinita
             TTimer = new Timer(
                         new TimerCallback(NextQuestion),
                         null,
-                        5000,
-                        5000);
+                        50000,
+                        50000);
             //-----------------------
 
             // Define the Columns
@@ -64,7 +64,7 @@ namespace TestGradinita
                         TestGradinita.Gradinita.score++;
                         TestGradinita.Gradinita.CorrectAnswerSound.Play();
                         Thread.Sleep(3000);
-                        this.NavigationService.Navigate(new QuestionPage());
+                        this.NavigationService.Navigate(new Score());
                     };
                 }
                 else
@@ -74,7 +74,6 @@ namespace TestGradinita
                         TestGradinita.Gradinita.wrongAnswers++;
                         TestGradinita.Gradinita.WrongAnswerSound.Play();
                         Thread.Sleep(3000);
-                        this.NavigationService.Navigate(new QuestionPage1()); // go to netx question?
                     };
                 }
                     
@@ -95,6 +94,7 @@ namespace TestGradinita
         {
             this.Dispatcher.Invoke(() =>
             {
+                TestGradinita.Gradinita.timpExpirat.PlaySync();
                 Uri pageFunctionUri = new Uri("QuestionPage.xaml", UriKind.RelativeOrAbsolute);
                 this.NavigationService.Navigate(pageFunctionUri);
             });

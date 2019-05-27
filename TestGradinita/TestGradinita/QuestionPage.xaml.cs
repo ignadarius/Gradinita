@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Threading;
 
 namespace TestGradinita
 {
@@ -22,11 +23,20 @@ namespace TestGradinita
     {
         List<Question> Questions;
 
+        static Timer TTimer = null;
+
         public QuestionPage()
         {
             InitializeComponent();
 
             LoadQuestions();
+
+            // Timer ----------------
+            TTimer = new Timer(
+                        new TimerCallback(NextQuestion),
+                        null,
+                        50000,
+                        50000);
 
             userImage.Height = 100;
             userImage.Width = 100;
@@ -80,14 +90,15 @@ namespace TestGradinita
                     if (imgSource.Equals(question.CorrectImage))
                     {
                         TestGradinita.Gradinita.score++;
-                        TestGradinita.Gradinita.CorrectAnswerSound.Play();
+                        TestGradinita.Gradinita.CorrectAnswerSound.PlaySync();
+                        this.NavigationService.Navigate(new QuestionPage1());
                     }  
                     else
                     {
                         TestGradinita.Gradinita.wrongAnswers++;
                         TestGradinita.Gradinita.WrongAnswerSound.Play();
                     }
-                    //this.NavigationService.Navigate(new QuestionPage());
+                    
                 };
                 Grid.SetRow(answer, (++i - 1) / 2);
                 Grid.SetColumn(answer, (i - 1) % 2);
@@ -122,6 +133,16 @@ namespace TestGradinita
             String correctImage = TestGradinita.Gradinita.dirSource +"q1-2.jpg";
 
             Questions.Add(new Question(soundDescription, images, correctImage));
+        }
+
+        private void NextQuestion(object state)
+        {
+            this.Dispatcher.Invoke(() =>
+            {
+                TestGradinita.Gradinita.timpExpirat.PlaySync();
+                Uri pageFunctionUri = new Uri("QuestionPage1.xaml", UriKind.RelativeOrAbsolute);
+                this.NavigationService.Navigate(pageFunctionUri);
+            });
         }
     }
 

@@ -34,8 +34,7 @@ namespace TestGradinita
             start.Source = new BitmapImage(new Uri(Gradinita.dirSource + "start.jpg"));
             start.MouseDown += (s, e) =>
             {
-                this.NavigationService.Navigate(new QuestionPage1());
-
+                this.NavigationService.Navigate(new QuestionPage());
             };
             start.Visibility = Visibility.Collapsed;
 
@@ -61,7 +60,7 @@ namespace TestGradinita
                 start.Visibility = Visibility.Visible;
                 start.MouseDown += (s, e) =>
                  {
-                     this.NavigationService.Navigate(new QuestionPage1());
+                     this.NavigationService.Navigate(new QuestionPage());
 
                  };
             });

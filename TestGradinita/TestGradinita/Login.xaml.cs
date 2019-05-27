@@ -80,7 +80,7 @@ namespace TestGradinita
             grid.RowDefinitions.Add(gridRow5);
           
             LoadCharacters();
-            System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"C:/Users/Admin/Desktop/master_an_1_semestru_2/copii/Gradinita/TestGradinita/resources/alegePersonaj.wav");
+            System.Media.SoundPlayer player = new System.Media.SoundPlayer(TestGradinita.Gradinita.dirSource+"/alegePersonaj.wav");
             player.Play();
 
             // initialize score
