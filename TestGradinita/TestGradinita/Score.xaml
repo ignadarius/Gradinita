@@ -5,10 +5,10 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TestGradinita"
       mc:Ignorable="d" 
-      d:DesignHeight="900" d:DesignWidth="1200"
+      d:DesignHeight="2000" d:DesignWidth="2000"
       Title="Score">
 
-    <Grid>
+    <Grid x:Name="gridScore" HorizontalAlignment="Stretch" Height="Auto" Margin="10,0,-690.289,-78.293" VerticalAlignment="Stretch" Width="Auto">
         <Grid.RowDefinitions>
             <RowDefinition Height="73*"/>
             <RowDefinition Height="77*"/>

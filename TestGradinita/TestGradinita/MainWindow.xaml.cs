@@ -27,7 +27,7 @@ namespace TestGradinita
         public static int score;
         public static int wrongAnswers;
 
-        public static string dirSource = "D:/Master-Guran/Gradinita/TestGradinita/resources/";
+        public static string dirSource = "C:/Users/Admin/Desktop/master_an_1_semestru_2/copii/v2/Gradinita/TestGradinita/resources/";
 
         // gresit/corect 
         public static string s1 = dirSource + "corect.wav";

@@ -58,11 +58,11 @@ namespace TestGradinita
 
             RowDefinition gridRow1 = new RowDefinition();
 
-            gridRow1.Height = new GridLength(210);
+            gridRow1.Height = new GridLength(410);
 
             RowDefinition gridRow2 = new RowDefinition();
 
-            gridRow2.Height = new GridLength(210);
+            gridRow2.Height = new GridLength(410);
 
             grid.RowDefinitions.Add(gridRow1);
 
@@ -111,10 +111,11 @@ namespace TestGradinita
         private Image CreateImage(String imgSource)
         {
             Image Mole = new Image();
-            Mole.Width = 200;
-            Mole.Height = 200;
+            Mole.Width = 350;
+            Mole.Height = 350;
             ImageSource MoleImage = new BitmapImage(new Uri(imgSource));
             Mole.Source = MoleImage;
+            Mole.Margin = new Thickness(10, 10, 10, 10) ;
             return Mole;
         }
 

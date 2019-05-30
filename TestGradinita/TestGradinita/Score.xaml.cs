@@ -23,6 +23,11 @@ namespace TestGradinita
         public Score()
         {
             InitializeComponent();
+
+            ImageBrush ib = new ImageBrush();
+            ib.ImageSource = new BitmapImage(new Uri(Gradinita.dirSource + "galaxy.png", UriKind.RelativeOrAbsolute));
+            gridScore.Background = ib;
+
             userImage.Source = new BitmapImage(new Uri((TestGradinita.Gradinita.UserImage.Source as BitmapImage).UriSource.AbsolutePath));
             List<Image> l = new List<Image>();
             l.Add(s1);
@@ -32,7 +37,7 @@ namespace TestGradinita
             l.Add(s5);
             for (int i=1;i<=TestGradinita.Gradinita.score%6;++i)
             {
-                l[i - 1].Source = new BitmapImage(new Uri(TestGradinita.Gradinita.dirSource + "steluta.jpg"));
+                l[i - 1].Source = new BitmapImage(new Uri(TestGradinita.Gradinita.dirSource + "star.png"));
             }
 
             System.Media.SoundPlayer player = new System.Media.SoundPlayer(TestGradinita.Gradinita.dirSource+"scor.wav");

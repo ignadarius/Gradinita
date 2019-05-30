@@ -53,23 +53,23 @@ namespace TestGradinita
 
             RowDefinition gridRow1 = new RowDefinition();
 
-            gridRow1.Height = new GridLength(120);
+            gridRow1.Height = new GridLength(220);
 
             RowDefinition gridRow2 = new RowDefinition();
 
-            gridRow2.Height = new GridLength(120);
+            gridRow2.Height = new GridLength(220);
 
             RowDefinition gridRow3 = new RowDefinition();   
 
-            gridRow3.Height = new GridLength(120);
+            gridRow3.Height = new GridLength(220);
 
             RowDefinition gridRow4 = new RowDefinition();
 
-            gridRow4.Height = new GridLength(120);
+            gridRow4.Height = new GridLength(220);
 
             RowDefinition gridRow5 = new RowDefinition();
 
-            gridRow5.Height = new GridLength(120);
+            gridRow5.Height = new GridLength(220);
 
             grid.RowDefinitions.Add(gridRow1);
 

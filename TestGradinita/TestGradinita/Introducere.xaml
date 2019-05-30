@@ -5,14 +5,12 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TestGradinita"
       mc:Ignorable="d" 
-      d:DesignHeight="900" d:DesignWidth="1200"
+      d:DesignHeight="2000" d:DesignWidth="2000"
       Title="Introducere">
-    <Grid HorizontalAlignment="Left" Height="900" Margin="0,10,0,0" VerticalAlignment="Top" Width="1200">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="138*"/>
-            <RowDefinition Height="77*"/>
-        </Grid.RowDefinitions>
-        <Image x:Name="userImage" HorizontalAlignment="Left" Height="100" Margin="1066,10,0,0" VerticalAlignment="Top" Width="100"/>
-        <Image x:Name="start" HorizontalAlignment="Left" Height="318" Margin="408,172,0,0" VerticalAlignment="Top" Width="470"/>
+    <Grid x:Name="gridIntroducere" HorizontalAlignment="Stretch" Height="Auto" Margin="10,0,-690.289,-78.293" VerticalAlignment="Stretch" Width="Auto">
+        <Image x:Name="userImage" HorizontalAlignment="Right" Height="150" Margin="0,10,0,0" VerticalAlignment="Top" Width="150"/>
+        <Image x:Name="start" HorizontalAlignment="Center" Margin="200,404.582,200,20" VerticalAlignment="Bottom"  Width="470"  Height="318"/>
+
+
     </Grid>
 </Page>

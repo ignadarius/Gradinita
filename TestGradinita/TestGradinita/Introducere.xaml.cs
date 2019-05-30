@@ -31,12 +31,16 @@ namespace TestGradinita
             InitializeComponent();
             userImage.Source = new BitmapImage(new Uri((TestGradinita.Gradinita.UserImage.Source as BitmapImage).UriSource.AbsolutePath));
 
-            start.Source = new BitmapImage(new Uri(Gradinita.dirSource + "start.jpg"));
-            start.MouseDown += (s, e) =>
+            ImageBrush ib = new ImageBrush();
+            ib.ImageSource = new BitmapImage(new Uri(Gradinita.dirSource + "galaxy.png", UriKind.RelativeOrAbsolute));
+            gridIntroducere.Background = ib; 
+
+            start.Source = new BitmapImage(new Uri(Gradinita.dirSource + "start.png"));
+            /*start.MouseDown += (s, e) =>
             {
-                this.NavigationService.Navigate(new QuestionPage());
+                this.NavigationService.Navigate(new QuestionPage2());
             };
-            start.Visibility = Visibility.Collapsed;
+            start.Visibility = Visibility.Collapsed;*/
 
             string s1 = Gradinita.dirSource + "start.wav";
             System.Media.SoundPlayer player = new System.Media.SoundPlayer(@s1);
@@ -46,8 +50,8 @@ namespace TestGradinita
             TTimer = new Timer(
                         new TimerCallback(StartTest),
                         null,
-                        5000,
-                        5000);
+                        1000,
+                        1000);
             //-----------------------
 
 
@@ -60,9 +64,21 @@ namespace TestGradinita
                 start.Visibility = Visibility.Visible;
                 start.MouseDown += (s, e) =>
                  {
-                     this.NavigationService.Navigate(new QuestionPage());
+                     this.NavigationService.Navigate(new QuestionPage2());
 
                  };
+
+                start.MouseEnter += (s, e) =>
+                {
+                    start.Width = 570;
+                    start.Height = 418;
+                };
+
+                start.MouseLeave += (s, e) =>
+                {
+                    start.Width = 470;
+                    start.Height = 318;
+                };
             });
         }
 
