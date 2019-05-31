@@ -52,9 +52,9 @@ namespace TestGradinita
             this.Dispatcher.Invoke(() =>
             {
                 TTimer.Dispose();
-                //string s1 = Gradinita.dirSource + "start.wav";
-                //System.Media.SoundPlayer player = new System.Media.SoundPlayer(@s1);
-                //player.PlaySync();
+                string s1 = Gradinita.dirSource + "start.wav";
+                System.Media.SoundPlayer player = new System.Media.SoundPlayer(@s1);
+                player.PlaySync();
 
                 this.NavigationService.Navigate(new QuestionPage());
                

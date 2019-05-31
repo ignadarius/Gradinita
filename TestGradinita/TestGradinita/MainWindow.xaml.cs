@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
 
 namespace TestGradinita
 {
@@ -115,6 +116,7 @@ namespace TestGradinita
             InitializeComponent();
             LoadUsers();
             Loaded += MyWindow_Loaded;
+            File.Delete(Gradinita.dirSource + "results.txt");
         }
 
         private void MyWindow_Loaded(object sender, RoutedEventArgs e)
