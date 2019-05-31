@@ -5,16 +5,25 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TestGradinita"
       mc:Ignorable="d" 
-      d:DesignHeight="2000" d:DesignWidth="2000"
+      d:DesignHeight="700" d:DesignWidth="1200"
       Title="QuestionPage2">
 
-    <Grid HorizontalAlignment="Stretch" Height="Auto" Margin="10,0,-690.289,-78.293" VerticalAlignment="Stretch" Width="Auto">
-        <Image x:Name="userImage" HorizontalAlignment="Right" Height="150" Margin="0,10,0,0" VerticalAlignment="Top" Width="150"/>
-        <Image x:Name="i1" HorizontalAlignment="Right" Margin="608,300,200,52.147" VerticalAlignment="Top"  Width="230"  Height="230"/>
-        <Image x:Name="pui" HorizontalAlignment="Right" Margin="200,200,400,50.574" VerticalAlignment="Bottom"  Width="230"  Height="230" RenderTransformOrigin="0.523,0.486"/>
-        <Image x:Name="mama" HorizontalAlignment="Left" Margin="50,10,10,0" VerticalAlignment="Top" Width="500"  Height="500"/>
-        <Image x:Name="i2" HorizontalAlignment="Right" Margin="0,0,590.289,300" VerticalAlignment="Bottom"  Width="230"  Height="230"/>
-        <Image x:Name="i3" HorizontalAlignment="Center" Margin="100,0,400,40" VerticalAlignment="Bottom"  Width="230"  Height="230"/>
-        <Image x:Name="i4" HorizontalAlignment="Right" Margin="50,0,100,100" VerticalAlignment="Bottom"  Width="230"  Height="230" RenderTransformOrigin="0.519,0.504"/>
+    <Grid HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Stretch" Width="Auto">
+        <Image x:Name="userImage" HorizontalAlignment="Right" Height="102" Margin="0,10,10,0" VerticalAlignment="Top" Width="102"/>
+        <Image x:Name="i1" HorizontalAlignment="Right" Margin="0,403,50,0" VerticalAlignment="Top"  Width="198"  Height="222"/>
+        <Image x:Name="pui" HorizontalAlignment="Right" Margin="0,0,960,79" VerticalAlignment="Bottom"  Width="230"  Height="230" RenderTransformOrigin="0.523,0.486"/>
+        <Image x:Name="mama" HorizontalAlignment="Left" Margin="58,40,0,0" VerticalAlignment="Top" Width="284"  Height="246" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0.813"/>
+                    <RotateTransform Angle="0.034"/>
+                    <TranslateTransform Y="1.986"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image x:Name="i2" HorizontalAlignment="Right" Margin="0,0,498,75" VerticalAlignment="Bottom"  Width="207"  Height="234"/>
+        <Image x:Name="i3" HorizontalAlignment="Center" Margin="380,0,590,423" VerticalAlignment="Bottom"  Width="230"  Height="230"/>
+        <Image x:Name="i4" HorizontalAlignment="Right" Margin="0,0,224,321" VerticalAlignment="Bottom"  Width="186"  Height="170" RenderTransformOrigin="0.519,0.504"/>
     </Grid>
 </Page>

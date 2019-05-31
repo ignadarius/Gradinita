@@ -53,23 +53,27 @@ namespace TestGradinita
 
             RowDefinition gridRow1 = new RowDefinition();
 
-            gridRow1.Height = new GridLength(220);
+            gridRow1.Height = new GridLength(120);
 
             RowDefinition gridRow2 = new RowDefinition();
 
-            gridRow2.Height = new GridLength(220);
+            gridRow2.Height = new GridLength(120);
 
             RowDefinition gridRow3 = new RowDefinition();   
 
-            gridRow3.Height = new GridLength(220);
+            gridRow3.Height = new GridLength(120);
 
             RowDefinition gridRow4 = new RowDefinition();
 
-            gridRow4.Height = new GridLength(220);
+            gridRow4.Height = new GridLength(120);
 
             RowDefinition gridRow5 = new RowDefinition();
 
-            gridRow5.Height = new GridLength(220);
+            gridRow5.Height = new GridLength(120);
+
+            RowDefinition gridRow6 = new RowDefinition();
+
+            gridRow6.Height = new GridLength(120);
 
             grid.RowDefinitions.Add(gridRow1);
 
@@ -78,7 +82,8 @@ namespace TestGradinita
             grid.RowDefinitions.Add(gridRow3);
             grid.RowDefinitions.Add(gridRow4);
             grid.RowDefinitions.Add(gridRow5);
-          
+            grid.RowDefinitions.Add(gridRow6);
+
             LoadCharacters();
             System.Media.SoundPlayer player = new System.Media.SoundPlayer(TestGradinita.Gradinita.dirSource+"/alegePersonaj.wav");
             player.Play();
@@ -96,29 +101,39 @@ namespace TestGradinita
 
         public void LoadCharacters()
         {
-            for(int i=1;i<=26;++i)
+            int i = 1;
+            foreach (KeyValuePair<string, User> entry in Gradinita.users)
             {
-                Image pers = CreateImage(i);
-
+                if (entry.Value.IsTested)
+                {
+                    ++i;
+                    continue;
+                }
+                Image pers = CreateImage(entry.Value.ImgSource);
+                
                 pers.MouseDown += (s, e) =>
                 {
-                    TestGradinita.Gradinita.UserImage = s as Image;
+                    Image img = s as Image;
+
+                    Gradinita.currentUser = Gradinita.users[(img.Source as BitmapImage).UriSource.AbsolutePath];
+                    Gradinita.currentUser.IsTested = true;
                     this.NavigationService.Navigate(new Introducere());
                     
                 };
                 Grid.SetRow(pers, (i -1) / 5);
                 Grid.SetColumn(pers, (i -1) % 5);
+                ++i;
 
                 grid.Children.Add(pers);
             }
         }
 
-        private Image CreateImage(int Id)
+        private Image CreateImage(string source)
         {
             Image Mole = new Image();
             Mole.Width = 100;
             Mole.Height = 100;
-            ImageSource MoleImage = new BitmapImage(new Uri(imgSource+Id.ToString()+".png"));
+            ImageSource MoleImage = new BitmapImage(new Uri(source));
             Mole.Source = MoleImage;
             return Mole;
         }

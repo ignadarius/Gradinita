@@ -25,6 +25,9 @@ namespace TestGradinita
 
         static Timer TTimer = null;
 
+        public int wrongAnswers = 0;
+        public int score = 10;
+
         public QuestionPage()
         {
             InitializeComponent();
@@ -40,8 +43,7 @@ namespace TestGradinita
 
             userImage.Height = 100;
             userImage.Width = 100;
-            userImage.Source = new BitmapImage(new Uri((TestGradinita.Gradinita.UserImage.Source as BitmapImage).UriSource.AbsolutePath));
-
+            userImage.Source = new BitmapImage(new Uri(Gradinita.currentUser.ImgSource));
             Loaded += ComponentLoaded;
 
             // Create Columns
@@ -58,11 +60,11 @@ namespace TestGradinita
 
             RowDefinition gridRow1 = new RowDefinition();
 
-            gridRow1.Height = new GridLength(410);
+            gridRow1.Height = new GridLength(310);
 
             RowDefinition gridRow2 = new RowDefinition();
 
-            gridRow2.Height = new GridLength(410);
+            gridRow2.Height = new GridLength(310);
 
             grid.RowDefinitions.Add(gridRow1);
 
@@ -89,14 +91,15 @@ namespace TestGradinita
                     Image chosenImage = s as Image;
                     if (imgSource.Equals(question.CorrectImage))
                     {
-                        TestGradinita.Gradinita.score++;
+                        Gradinita.currentUser.Score += score - wrongAnswers;
                         TestGradinita.Gradinita.CorrectAnswerSound.PlaySync();
+                        TTimer.Dispose();
                         this.NavigationService.Navigate(new QuestionPage1());
                     }  
                     else
                     {
-                        TestGradinita.Gradinita.wrongAnswers++;
-                        TestGradinita.Gradinita.WrongAnswerSound.Play();
+                        wrongAnswers++;
+                        Gradinita.WrongAnswerSound.Play();
                     }
                     
                 };
@@ -111,8 +114,8 @@ namespace TestGradinita
         private Image CreateImage(String imgSource)
         {
             Image Mole = new Image();
-            Mole.Width = 350;
-            Mole.Height = 350;
+            Mole.Width = 250;
+            Mole.Height = 250;
             ImageSource MoleImage = new BitmapImage(new Uri(imgSource));
             Mole.Source = MoleImage;
             Mole.Margin = new Thickness(10, 10, 10, 10) ;
@@ -140,9 +143,9 @@ namespace TestGradinita
         {
             this.Dispatcher.Invoke(() =>
             {
+                TTimer.Dispose();
                 TestGradinita.Gradinita.timpExpirat.PlaySync();
-                Uri pageFunctionUri = new Uri("QuestionPage1.xaml", UriKind.RelativeOrAbsolute);
-                this.NavigationService.Navigate(pageFunctionUri);
+                this.NavigationService.Navigate(new QuestionPage1());
             });
         }
     }

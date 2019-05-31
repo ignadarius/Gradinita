@@ -5,15 +5,15 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TestGradinita"
       mc:Ignorable="d" 
-      d:DesignHeight="2000" d:DesignWidth="2000"
+      d:DesignHeight="700" d:DesignWidth="1200"
       Title="Score">
 
-    <Grid x:Name="gridScore" HorizontalAlignment="Stretch" Height="Auto" Margin="10,0,-690.289,-78.293" VerticalAlignment="Stretch" Width="Auto">
+    <Grid x:Name="gridScore" HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Stretch" Width="Auto">
         <Grid.RowDefinitions>
             <RowDefinition Height="73*"/>
             <RowDefinition Height="77*"/>
         </Grid.RowDefinitions>
-        <Image x:Name="userImage" HorizontalAlignment="Left" Height="353" Margin="388,28,0,0" VerticalAlignment="Top" Width="431"/>
+        <Image x:Name="userImage" HorizontalAlignment="Left" Height="269" Margin="388,28,0,0" VerticalAlignment="Top" Width="431"/>
         <Image HorizontalAlignment="Left" Height="100" Margin="62,52,0,0" VerticalAlignment="Top" Width="100" Grid.Row="1"/>
         <Image x:Name="s1" HorizontalAlignment="Left" Height="100" Margin="83,389,0,0" VerticalAlignment="Top" Width="100" Grid.RowSpan="2"/>
         <Image x:Name="s2" HorizontalAlignment="Left" Height="100" Margin="305,389,0,0" VerticalAlignment="Top" Width="100" Grid.RowSpan="2"/>

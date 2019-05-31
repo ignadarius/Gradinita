@@ -22,10 +22,14 @@ namespace TestGradinita
     public partial class QuestionPage2 : Page
     {
         static Timer TTimer = null;
+
+        public int wrongAnswers = 0;
+        public int score = 10;
+
         public QuestionPage2()
         {
             InitializeComponent();
-            userImage.Source = new BitmapImage(new Uri((TestGradinita.Gradinita.UserImage.Source as BitmapImage).UriSource.AbsolutePath));
+            userImage.Source = new BitmapImage(new Uri(Gradinita.currentUser.ImgSource));
 
 
             // Timer ----------------
@@ -52,33 +56,34 @@ namespace TestGradinita
 
             pui.MouseDown += (s, e) =>
             {
-                TestGradinita.Gradinita.score++;
+                Gradinita.currentUser.Score += score - wrongAnswers;
                 TestGradinita.Gradinita.CorrectAnswerSound.PlaySync();
-                this.NavigationService.Navigate(new QuestionPage());
+                TTimer.Dispose();
+                this.NavigationService.Navigate(new Score());
             };
 
             i1.MouseDown += (s, e) =>
             {
-                TestGradinita.Gradinita.wrongAnswers++;
-                TestGradinita.Gradinita.WrongAnswerSound.Play();
+                wrongAnswers++;
+                Gradinita.WrongAnswerSound.Play();
             };
 
             i2.MouseDown += (s, e) =>
             {
-                TestGradinita.Gradinita.wrongAnswers++;
-                TestGradinita.Gradinita.WrongAnswerSound.Play();
+                wrongAnswers++;
+                Gradinita.WrongAnswerSound.Play();
             };
 
             i3.MouseDown += (s, e) =>
             {
-                TestGradinita.Gradinita.wrongAnswers++;
-                TestGradinita.Gradinita.WrongAnswerSound.Play();
+                wrongAnswers++;
+                Gradinita.WrongAnswerSound.Play();
             };
 
             i4.MouseDown += (s, e) =>
             {
-                TestGradinita.Gradinita.wrongAnswers++;
-                TestGradinita.Gradinita.WrongAnswerSound.Play();
+                wrongAnswers++;
+                Gradinita.WrongAnswerSound.Play();
             };
 
         }
@@ -87,9 +92,8 @@ namespace TestGradinita
         {
             this.Dispatcher.Invoke(() =>
             {
-                TestGradinita.Gradinita.timpExpirat.PlaySync();
-                Uri pageFunctionUri = new Uri("QuestionPage.xaml", UriKind.RelativeOrAbsolute);
-                this.NavigationService.Navigate(pageFunctionUri);
+                TTimer.Dispose();
+                this.NavigationService.Navigate(new Score());
             });
         }
     }

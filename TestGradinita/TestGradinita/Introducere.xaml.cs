@@ -29,29 +29,19 @@ namespace TestGradinita
         public Introducere()
         {
             InitializeComponent();
-            userImage.Source = new BitmapImage(new Uri((TestGradinita.Gradinita.UserImage.Source as BitmapImage).UriSource.AbsolutePath));
+            userImage.Source = new BitmapImage(new Uri(Gradinita.currentUser.ImgSource));
 
             ImageBrush ib = new ImageBrush();
             ib.ImageSource = new BitmapImage(new Uri(Gradinita.dirSource + "galaxy.png", UriKind.RelativeOrAbsolute));
             gridIntroducere.Background = ib; 
 
-            start.Source = new BitmapImage(new Uri(Gradinita.dirSource + "start.png"));
-            /*start.MouseDown += (s, e) =>
-            {
-                this.NavigationService.Navigate(new QuestionPage2());
-            };
-            start.Visibility = Visibility.Collapsed;*/
-
-            string s1 = Gradinita.dirSource + "start.wav";
-            System.Media.SoundPlayer player = new System.Media.SoundPlayer(@s1);
-            player.Play();
 
             // Timer ----------------
             TTimer = new Timer(
                         new TimerCallback(StartTest),
                         null,
                         1000,
-                        1000);
+                        1);
             //-----------------------
 
 
@@ -61,24 +51,13 @@ namespace TestGradinita
         {
             this.Dispatcher.Invoke(() =>
             {
-                start.Visibility = Visibility.Visible;
-                start.MouseDown += (s, e) =>
-                 {
-                     this.NavigationService.Navigate(new QuestionPage2());
+                TTimer.Dispose();
+                //string s1 = Gradinita.dirSource + "start.wav";
+                //System.Media.SoundPlayer player = new System.Media.SoundPlayer(@s1);
+                //player.PlaySync();
 
-                 };
-
-                start.MouseEnter += (s, e) =>
-                {
-                    start.Width = 570;
-                    start.Height = 418;
-                };
-
-                start.MouseLeave += (s, e) =>
-                {
-                    start.Width = 470;
-                    start.Height = 318;
-                };
+                this.NavigationService.Navigate(new QuestionPage());
+               
             });
         }
 

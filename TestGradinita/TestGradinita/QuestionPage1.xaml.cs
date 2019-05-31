@@ -26,11 +26,12 @@ namespace TestGradinita
     {
         static string imgSource =TestGradinita.Gradinita.dirSource+"q1/img";
         static Timer TTimer = null;
+        public int score = 10;
+        public int wrongAnswers = 0;
         public QuestionPage1()
         {
             InitializeComponent();
-            userImage.Source = new BitmapImage(new Uri((TestGradinita.Gradinita.UserImage.Source as BitmapImage).UriSource.AbsolutePath));
-
+            userImage.Source = new BitmapImage(new Uri(Gradinita.currentUser.ImgSource));
             // Timer ----------------
             TTimer = new Timer(
                         new TimerCallback(NextQuestion),
@@ -61,18 +62,19 @@ namespace TestGradinita
                 {
                     pers.MouseDown += (s, e) =>
                     {
-                        TestGradinita.Gradinita.score++;
+                        Gradinita.currentUser.Score += score - wrongAnswers;
                         TestGradinita.Gradinita.CorrectAnswerSound.Play();
                         Thread.Sleep(3000);
-                        this.NavigationService.Navigate(new Score());
+                        TTimer.Dispose();
+                        this.NavigationService.Navigate(new QuestionPage2());
                     };
                 }
                 else
                 {
                     pers.MouseDown += (s, e) =>
                     {
-                        TestGradinita.Gradinita.wrongAnswers++;
-                        TestGradinita.Gradinita.WrongAnswerSound.Play();
+                        wrongAnswers++;
+                        Gradinita.WrongAnswerSound.Play();
                         Thread.Sleep(3000);
                     };
                 }
@@ -94,9 +96,8 @@ namespace TestGradinita
         {
             this.Dispatcher.Invoke(() =>
             {
-                TestGradinita.Gradinita.timpExpirat.PlaySync();
-                Uri pageFunctionUri = new Uri("QuestionPage.xaml", UriKind.RelativeOrAbsolute);
-                this.NavigationService.Navigate(pageFunctionUri);
+                TTimer.Dispose();
+                this.NavigationService.Navigate(new QuestionPage2());
             });
         }
 
