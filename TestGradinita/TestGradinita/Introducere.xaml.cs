@@ -56,7 +56,7 @@ namespace TestGradinita
                 System.Media.SoundPlayer player = new System.Media.SoundPlayer(@s1);
                 player.PlaySync();
 
-                this.NavigationService.Navigate(new DADQuestion());
+                this.NavigationService.Navigate(new ShadowQuestion());
                
             });
         }
