@@ -58,6 +58,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DADQuestion.xaml.cs">
+      <DependentUpon>DADQuestion.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Introducere.xaml.cs">
       <DependentUpon>Introducere.xaml</DependentUpon>
     </Compile>
@@ -73,6 +76,10 @@
     <Compile Include="Score.xaml.cs">
       <DependentUpon>Score.xaml</DependentUpon>
     </Compile>
+    <Page Include="DADQuestion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Introducere.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

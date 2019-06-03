@@ -39,6 +39,7 @@ namespace TestGradinita
         public static System.Media.SoundPlayer CorrectAnswerSound = new System.Media.SoundPlayer(@s1);
         public static System.Media.SoundPlayer WrongAnswerSound = new System.Media.SoundPlayer(@s2);
         public static System.Media.SoundPlayer timpExpirat = new System.Media.SoundPlayer(@dirSource + "expirat.wav");
+        public static System.Media.SoundPlayer OrdoneazaNumerele = new System.Media.SoundPlayer(dirSource + "ordoneaza.wav");
     };
 
     public class User
