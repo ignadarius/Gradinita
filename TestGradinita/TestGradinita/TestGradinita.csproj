@@ -73,6 +73,21 @@
     <Compile Include="QuestionPage2.xaml.cs">
       <DependentUpon>QuestionPage2.xaml</DependentUpon>
     </Compile>
+    <Compile Include="QuestionPage3.xaml.cs">
+      <DependentUpon>QuestionPage3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="QuestionPage4.xaml.cs">
+      <DependentUpon>QuestionPage4.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="QuestionPage5.xaml.cs">
+      <DependentUpon>QuestionPage5.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="QuestionPage6.xaml.cs">
+      <DependentUpon>QuestionPage6.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="QuestionPage7.xaml.cs">
+      <DependentUpon>QuestionPage7.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Score.xaml.cs">
       <DependentUpon>Score.xaml</DependentUpon>
     </Compile>
@@ -112,6 +127,26 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="QuestionPage2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="QuestionPage3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="QuestionPage4.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="QuestionPage5.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="QuestionPage6.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="QuestionPage7.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

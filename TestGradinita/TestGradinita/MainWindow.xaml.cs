@@ -28,6 +28,7 @@ namespace TestGradinita
         public static int score;
         public static int wrongAnswers;
 
+        //public static string dirSource = "D:/Master-Guran/Gradinita/TestGradinita/resources/";
         public static string dirSource = "D:/Master-Guran/Gradinita/TestGradinita/resources/";
 
         // gresit/corect 
@@ -117,7 +118,8 @@ namespace TestGradinita
             InitializeComponent();
             LoadUsers();
             Loaded += MyWindow_Loaded;
-            File.Delete(Gradinita.dirSource + "results.txt");
+            if(File.Exists(Gradinita.dirSource + "results.txt"))
+                File.Delete(Gradinita.dirSource + "results.txt");
         }
 
         private void MyWindow_Loaded(object sender, RoutedEventArgs e)

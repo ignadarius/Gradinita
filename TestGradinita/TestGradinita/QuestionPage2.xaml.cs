@@ -59,7 +59,7 @@ namespace TestGradinita
                 Gradinita.currentUser.Score += score - wrongAnswers;
                 TestGradinita.Gradinita.CorrectAnswerSound.PlaySync();
                 TTimer.Dispose();
-                this.NavigationService.Navigate(new Score());
+                this.NavigationService.Navigate(new QuestionPage3());
             };
 
             i1.MouseDown += (s, e) =>
@@ -93,7 +93,7 @@ namespace TestGradinita
             this.Dispatcher.Invoke(() =>
             {
                 TTimer.Dispose();
-                this.NavigationService.Navigate(new Score());
+                this.NavigationService.Navigate(new QuestionPage3());
             });
         }
     }

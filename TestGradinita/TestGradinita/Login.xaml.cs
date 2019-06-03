@@ -118,7 +118,6 @@ namespace TestGradinita
                     Gradinita.currentUser = Gradinita.users[(img.Source as BitmapImage).UriSource.AbsolutePath];
                     Gradinita.currentUser.IsTested = true;
                     this.NavigationService.Navigate(new Introducere());
-                    
                 };
                 Grid.SetRow(pers, (i -1) / 5);
                 Grid.SetColumn(pers, (i -1) % 5);
